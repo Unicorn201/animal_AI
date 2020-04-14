@@ -2,6 +2,7 @@ from PIL import Image
 import os, glob
 import numpy as np
 #import元がsklearn.cross_varidationからsklearn.model_selectionに変更
+#from sklearn import cross_varidation
 from sklearn import model_selection
 
 classes = ["monkey","boar","crow"]
@@ -27,3 +28,6 @@ for index , classlabel in enumerate(classes):
 X = np.array(X)
 Y = np.array(Y)
 
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X, Y)
+xy = (X_train, X_test, y_train, y_test)
+np.save("./animal.npy", xy)
