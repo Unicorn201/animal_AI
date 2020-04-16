@@ -17,7 +17,7 @@ def main():
     y_train = np_utils.to_categorical(y_train, num_classes)
     y_test = np_utils.to_categorical(y_test, num_classes)
 
-    model = model_train(X_train, X_test)
+    model = model_train(X_train, y_train)
     model_eval(model, X_test, y_test)
 
 def model_train(X, y):
@@ -41,7 +41,7 @@ def model_train(X, y):
     model.compile(loss = 'categorical_crossentropy',
                     optimizer=opt, metrics=['accuracy'])
 
-    model.fit(X, y, batch_size=32, nb_epoch=100)
+    model.fit(X, y, batch_size=32, epochs=100)
 
     # モデルの保存
     model.save('./animal_cnn.h5')
