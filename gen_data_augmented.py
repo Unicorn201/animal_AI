@@ -38,7 +38,7 @@ for index , classlabel in enumerate(classes):
                 Y_train.append(index)
 
                 #transration
-                img_trans = image.transpose(Image.FLIP_LEFT_RIGHT)
+                img_trans = img_r.transpose(Image.FLIP_LEFT_RIGHT)
                 data = np.asarray(img_trans)
                 X_train.append(data)
                 Y_train.append(index)

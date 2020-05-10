@@ -36,12 +36,13 @@ def model_train(X, y):
     model.add(Dense(3))
     model.add(Activation('softmax'))
 
-    opt = keras.optimizers.rmsprop(lr=0.0001, decay = 1e-6)
+    #opt = keras.optimizers.rmsprop(lr=0.0001, decay = 1e-6)
+    opt = keras.optimizers.adam()
 
     model.compile(loss = 'categorical_crossentropy',
                     optimizer=opt, metrics=['accuracy'])
 
-    model.fit(X, y, batch_size=32, epochs=100)
+    model.fit(X, y, batch_size=32, epochs=77)
 
     # モデルの保存
     model.save('./animal_cnn_aug.h5')
